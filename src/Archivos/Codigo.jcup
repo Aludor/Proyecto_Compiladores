@@ -1,0 +1,17 @@
+package proyecto.compiladores;
+
+import java_cup.runtime.Symbol;
+
+terminal MAS;
+terminal ID;
+
+non terminal S, I;
+
+precedence left MAS;
+
+start with S;
+
+S ::= I S {: System.out.println("S -> I S");:}
+    | I {: System.out.println("S -> I");:};
+
+I ::= ID MAS ID {: System.out.println("I -> ID MAS ID");:};
